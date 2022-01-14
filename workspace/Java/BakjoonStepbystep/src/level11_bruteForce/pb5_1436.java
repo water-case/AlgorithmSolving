@@ -25,7 +25,6 @@ public class pb5_1436 {
 				}
 				
 				if (count == 3) {
-					System.out.println(i);
 					ans++;
 					break;
 				}
