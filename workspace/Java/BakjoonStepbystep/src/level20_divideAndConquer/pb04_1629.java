@@ -6,16 +6,26 @@ public class pb04_1629 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		long A = sc.nextInt();
-		long B = sc.nextInt();
-		long C = sc.nextInt();
-		
+		long A = sc.nextLong();
+		long B = sc.nextLong();
+		long C = sc.nextLong();
+
+		System.out.println(cf(A, B, C));
+		sc.close();
 	}
-	
-	static int cf(int a, int b, int c) {
-		int result = 0;
+
+	static long cf(long a, long b, long c) {
+		if (b == 1) {
+			return a % c;
+		}
 		
+		long tmp = cf(a, b / 2, c);
 		
-		return result;
+		if (b % 2 == 0) {
+			return tmp * tmp % c;
+		} else {
+			return (tmp * tmp % c) * a % c;
+		}
+
 	}
 }
