@@ -4,7 +4,7 @@ import java.io.*;
 import java.math.BigInteger;
 import java.util.*;
 
-public class pb04_1086 {
+public class pb04_1086_backup {
 	
 	static int N, K, lengthSum;
 	static long count, totalCount=1;
@@ -25,27 +25,25 @@ public class pb04_1086 {
 			String s = br.readLine();
 			nums[i] = new BigInteger(s);
 			larr[i] = s.length();
-			lengthSum += larr[i]; // 전체 길이구한다
+			lengthSum += s.length(); // 전체 길이구한다
 		}
 		K = Integer.parseInt(br.readLine());
 //		long start2 = System.nanoTime();
 //		System.out.println((start2 - start) / 1000000000 + " 초걸림");
 		
-		mnums = new int[N][lengthSum]; //모듈러연산을 각 자리일때 dp에 미리 다해놓는다
+		mnums = new int[N][lengthSum]; //모듈러연산을 각 자리일때 dp에 미리 다해놓는다 
 		BigInteger ten = new BigInteger(String.valueOf(10)); // 10곱하기
 		BigInteger mode = new BigInteger(String.valueOf(K)); // 모듈러할값
 		for (int i = 0; i < N; i++) {
-			BigInteger result = (nums[i]).mod(mode);
-			mnums[i][0] = Integer.parseInt(result.toString());
-		}
-		for (int i = 0; i < N; i++) {
-			for(int j=1; j<lengthSum; j++) {
-				mnums[i][j] = (mnums[i][j-1] * 10) % K;
+			BigInteger tmpn = new BigInteger("1");
+			for (int j = 0; j < lengthSum; j++) {
+				BigInteger result = (nums[i].multiply(tmpn)).mod(mode);
+				mnums[i][j] = Integer.parseInt(result.toString());
+				tmpn = tmpn.multiply(ten);
 			}
 		}
-//		for(int[] ia : mnums)
-//			System.out.println(Arrays.toString(ia));
-		
+		for(int[] ia : mnums)
+			System.out.println(Arrays.toString(ia));
 //		long start3 = System.nanoTime();
 //		System.out.println((start3 - start2) / 1000000000 + " 초걸림");
 		
@@ -54,7 +52,7 @@ public class pb04_1086 {
 //		long start4 = System.nanoTime();
 //		System.out.println((start4 - start3) / 1000000000 + " 초걸림");
 		
-//		for(Long[] ia : dp)
+//		for(int[] ia : dp)
 //			System.out.println(Arrays.toString(ia));
 		
 		// 출력부 계산
@@ -108,3 +106,4 @@ public class pb04_1086 {
 	}
 
 }
+
