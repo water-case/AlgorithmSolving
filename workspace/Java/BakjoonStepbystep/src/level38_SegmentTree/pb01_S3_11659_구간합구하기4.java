@@ -1,9 +1,9 @@
-package level37_StronglyConnectedComponent;
+package level38_SegmentTree;
 
 import java.io.*;
 import java.util.*;
 
-public class pb08_P3_16367_TVShowGame {
+public class pb01_S3_11659_구간합구하기4 {
 
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input.txt"));
