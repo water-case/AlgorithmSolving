@@ -115,7 +115,7 @@ static class Queue {
     rear=newNode;
     count++;
   }
-  public String pull() {
+  public String poll() {
     if(isEmpty())
       return null;
 
