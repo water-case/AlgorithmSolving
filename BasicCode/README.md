@@ -45,3 +45,88 @@ static void Subset(int cnt, boolean[] v){
   Subset(cnt+1, v);
 }
 ```
+
+## 스택
+```java
+static class Node {
+  String data;
+  Node link;
+
+  public Node(String data, Node link) {
+    this.data=data;
+    this.link=link;
+  }
+  public Node(String data){
+    this.data=data;
+  }
+}
+
+static class Stack {
+  private Node top;
+
+  public String push(String data){
+    top=new Node(data, top);
+  }
+  
+  public String pop() {
+    if(isEmpty()) return null;
+
+    Node popNode=top;
+    top=popNode.link;
+    popNode.link=null;
+    
+    return popNode.data;
+  }
+
+  public boolean isEmpty() {
+    return top==null;
+  }
+}
+```
+
+## 큐
+```java
+static class Node {
+  String data;
+  Node link;
+
+  public Node(String data, Node link) {
+    this.data=data;
+    this.link=link;
+  }
+  public Node(String data){
+    this.data=data;
+  }
+}
+
+static class Queue {
+  Node front;
+  Node rear;
+  int count;
+
+  public void offer(int data) {
+    Node newNode=new Node(data);
+
+    if(isEmpty())
+      front=newNode;
+    else
+      rear.link=newNode;
+
+    rear=newNode;
+    count++;
+  }
+  public String pull() {
+    if(isEmpty())
+      return null;
+
+    String data=front.data;
+    front=front.link;
+    count--;
+
+    return data;
+  }
+  public boolean isEmpty() {
+    return count==0;
+  }
+}
+```
