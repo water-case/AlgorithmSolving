@@ -7,7 +7,7 @@ static void Permutation(int cnt, boolean[] v, int[] nums) {
   if(cnt == r)
     return;
 
-  for(int i=0; i<n; i++){
+  for(int i=0; i<n; i++) {
     if(v[i]) continue;
 
     nums[cnt]=i;
@@ -21,11 +21,11 @@ static void Permutation(int cnt, boolean[] v, int[] nums) {
 ## 조합
 ```java
 // 조합 nCr
-static void Combination(int cnt, int start, int[] nums){
+static void Combination(int cnt, int start, int[] nums) {
   if(cnt == r)
     return;
 
-  for(int i=start; i<n; i++){
+  for(int i=start; i<n; i++) {
     nums[cnt]=i;
     Combination(cnt+1, i+1, nums);
   }
@@ -35,7 +35,7 @@ static void Combination(int cnt, int start, int[] nums){
 ## 부분집합
 ```java
 // 부분집합 n개의 원소로 생성될 수 있는 부분집합
-static void Subset(int cnt, boolean[] v){
+static void Subset(int cnt, boolean[] v) {
   if(cnt == n)
     return;
 
@@ -56,7 +56,7 @@ static class Node {
     this.data=data;
     this.link=link;
   }
-  public Node(String data){
+  public Node(String data) {
     this.data=data;
   }
 }
@@ -64,7 +64,7 @@ static class Node {
 static class Stack {
   private Node top;
 
-  public String push(String data){
+  public String push(String data) {
     top=new Node(data, top);
   }
   
@@ -94,7 +94,7 @@ static class Node {
     this.data=data;
     this.link=link;
   }
-  public Node(String data){
+  public Node(String data) {
     this.data=data;
   }
 }
@@ -127,6 +127,53 @@ static class Queue {
   }
   public boolean isEmpty() {
     return count==0;
+  }
+}
+```
+
+## DFS (깊이우선탐색)
+```java
+// 배열 4방향 탐색 기준 DFS
+static int N=5;
+static int[] delx={-1, 0, 1, 0}; // 상우하좌
+static int[] dely={ 0, 1, 0,-1};
+static boolean[][] v;
+
+static void dfs(int x, int y) {
+  v[x][y]=true;
+  for(int d=0; d<4; d++) {
+    int dx=x+delx[d];
+    int dy=y+dely[d];
+    if(dx<0 || dx>=4 || dy<0 || dy>=4) continue;
+    dfs(dx, dy);
+  }
+}
+```
+
+## BFS (너비우선탐색)
+```java
+// 배열 4방향 탐색 기준 BFS
+static int N=5;
+static int[] delx={-1, 0, 1, 0}; // 상우하좌
+static int[] dely={ 0, 1, 0,-1};
+static boolean[][] v;
+
+static void bfs(int x, int y) {
+  Queue<int[]> q=new LinkedList<>();
+  v[x][y]=true;
+  q.offer(new int[] {x, y});
+  
+  while(!q.isEmpty()) {
+    int[] now=q.poll();
+    x=now[0]; y=now[1];
+
+    for(int d=0; d<4; d++) {
+      int dx=x+delx[d];
+      int dy=y+dely[d];
+      if(dx<0 || dx>=4 || dy<0 || dy>=4) continue;
+      v[dx][dy]=true;
+      q.offer(new int[] {dx, dy});
+    }
   }
 }
 ```
