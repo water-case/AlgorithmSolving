@@ -1,5 +1,14 @@
 # 알고리즘 기초코드정리 ⏸
 
+## 목차
+  - [순열](#순열)
+  - [조합](#조합)
+  - [부분집합](#부분집합)
+  - [스택](#스택)
+  - [큐](#큐)
+  - [dfs (깊이우선탐색)](#dfs-깊이우선탐색)
+  - [bfs (너비우선탐색)](#bfs-너비우선탐색)
+
 ## 순열
 ```java
 // 순열 nPr
@@ -17,6 +26,7 @@ static void Permutation(int cnt, boolean[] v, int[] nums) {
   }
 }
 ```
+[맨위로](#알고리즘-기초코드정리-⏸)
 
 ## 조합
 ```java
@@ -31,6 +41,7 @@ static void Combination(int cnt, int start, int[] nums) {
   }
 }
 ```
+[맨위로](#알고리즘-기초코드정리-⏸)
 
 ## 부분집합
 ```java
@@ -45,6 +56,7 @@ static void Subset(int cnt, boolean[] v) {
   Subset(cnt+1, v);
 }
 ```
+[맨위로](#알고리즘-기초코드정리-⏸)
 
 ## 스택
 ```java
@@ -83,6 +95,7 @@ static class Stack {
   }
 }
 ```
+[맨위로](#알고리즘-기초코드정리-⏸)
 
 ## 큐
 ```java
@@ -130,6 +143,7 @@ static class Queue {
   }
 }
 ```
+[맨위로](#알고리즘-기초코드정리-⏸)
 
 ## DFS (깊이우선탐색)
 ```java
@@ -149,6 +163,7 @@ static void dfs(int x, int y) {
   }
 }
 ```
+[맨위로](#알고리즘-기초코드정리-⏸)
 
 ## BFS (너비우선탐색)
 ```java
@@ -177,3 +192,4 @@ static void bfs(int x, int y) {
   }
 }
 ```
+[맨위로](#알고리즘-기초코드정리-⏸)
