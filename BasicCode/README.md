@@ -193,3 +193,46 @@ static void bfs(int x, int y) {
 }
 ```
 [목차로 이동](#목차)
+
+## Dijkstra
+```java
+static class Node implements Comparable<Node> {
+  int end, price;
+
+  public Node(int end, int price) {
+    this.end=end;
+    this.price=price;
+  }
+  @Override
+  public int compareTo(Node o) {
+    return price-o.price;
+  }
+}
+
+public static void main(String[] args) throws Exception {
+  int n; // 정점수
+  int d; // 간선수
+  ArrayList<Node>[] g; // 간선 그래프 배열
+  boolean[] v; // 정점 방문 배열
+  int[] dist; // 각 정점까지의 최단거리
+  
+  PriorityQueue<Node> pq=new PriorityQueue<>();
+  dist[0]=0;
+  pq.add(new Node(0, 0));
+  
+  while(!pq.isEmpty()) {
+    Node now=pq.poll();
+    
+    if(v[now.end]) continue;
+    v[now.end]=true;
+    
+    for(Node next:g[now.end]) {
+      if(!v[next.end] && dist[next.end] > dist[now.end]+next.price){
+        dist[next.end] = dist[now.end]+next.price;
+        pq.add(new Node(next.end, dist[next.end]));
+      }
+    }
+  }
+}
+```
+[목차로 이동](#목차)
