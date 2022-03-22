@@ -8,6 +8,12 @@
   - [큐](#큐)
   - [dfs (깊이우선탐색)](#dfs-깊이우선탐색)
   - [bfs (너비우선탐색)](#bfs-너비우선탐색)
+  - [Dijkstra](#dijkstra)
+  - [UnionFind](#unionfind)
+  - [Kruskal](#kruskal)
+  - [Prim](#prim)
+  - [KMP](#kmp)
+  - [](#)
 
 ## 순열
 ```java
@@ -226,13 +232,147 @@ public static void main(String[] args) throws Exception {
     if(v[now.end]) continue;
     v[now.end]=true;
     
-    for(Node next:g[now.end]) {
+    for(Node next:g[now.end])
       if(!v[next.end] && dist[next.end] > dist[now.end]+next.price){
         dist[next.end] = dist[now.end]+next.price;
         pq.add(new Node(next.end, dist[next.end]));
       }
-    }
   }
 }
 ```
 [목차로 이동](#목차)
+
+## UnionFind
+``` java
+static int N;
+static int[] parent;
+
+public static void makeSet() {
+  parent=new int[N];
+  for(int i=0; i<N; i++) parent[i]=i;
+}
+
+public static int find(int a) {
+  if(a==parent[a]) return a;
+  return parent[a]=find(parent[a]);
+}
+
+public static boolean isUnion(int a, int b) {
+  a=find(a);
+  b=find(b);
+  if(find(a)==find(b)) return true;
+  return true;
+}
+
+public static void union(int a, int b) {
+  a=find(a);
+  b=find(b);
+  if(find(a)==find(b)) return;
+  parent[b]=a;
+}
+```
+[목차로 이동](#목차)
+
+## Kruskal
+``` java
+static class Edge implements Comparable<Edge> {
+  int start, end, price;
+
+  public Edge(int start, int end, int price) {
+    this.start=start;
+    this.end=end;
+    this.price=price;
+  }
+
+  @Override
+  public int compareTo(Edge o) {
+    return Integer.compare(price, o.price);
+  }
+}
+
+public static void main(String[] args) {
+  int[] parent;
+  ArrayList<Edge> edgeList;
+
+  Collections.sort(edgeList);
+  makeSet();
+
+  int result=0, cnt=0;
+  for(Edge e:edgeList)
+    if(isUnion(e.start, e.end)) {
+      union(e.start, e.end);
+      result+=e.price;
+      if(++cnt==N-1) break;
+    }
+  System.out.println(result);
+}
+```
+[목차로 이동](#목차)
+
+## Prim
+```java
+public static void main(String[] args) {
+  boolean[] v;
+  int N;
+  int[] mdist;
+  int[][] g;
+
+  for(int i=0; i<N; i++) mdist[i]=Integer.MAX_VALUE;
+  int result=0;
+  mdist[0]=0;
+
+  for(int c=0; c<N; c++) {
+    int min=Integer.MAX_VALUE;
+    int minV=0;
+
+    for(int i=0; i<N; i++)
+      if(!v[i] && min>mdist[i]) {
+        min=mdist[i];
+        minV=i;
+      }
+
+    v[minV]=true;
+    result+=min;
+
+    for(int i=0; i<N; i++)
+      if(!v[i] && g[minV][i]!=0 && mdist[i]>g[minV][i])
+        mdist[i]=g[minV][i];
+  }
+  System.out.println(result);
+}
+```
+[목차로 이동](#목차)
+
+## KMP
+```java
+char[] text;
+char[] pattern;
+
+int tl=text.length, pl=pattern.length;
+
+int[] pi=new int[pl];
+for(int i=0, j=0; i<pl; i++) {
+  while(j>0 && pattern[i]!=pattern[j]) j=pi[j-1];
+  
+  if(pattern[i]==pattern[j]) pi[i]=++j;
+  else pi[i]=0;
+}
+
+int cnt=0;
+for(int i=0,j=0; i<tl; ++i) {
+  while(j>0 && text[i]!=pattern[j]) j=pi[j-1];
+
+  if(text[i]==pattern[j]) {
+    if(j==pl-1) {
+      cnt++;
+      j=pi[j];
+    } else {
+      j++;
+    }
+  }
+}
+System.out.println(cnt);
+```
+[목차로 이동](#목차)
+
+##
