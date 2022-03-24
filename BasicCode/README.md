@@ -261,7 +261,7 @@ public static boolean isUnion(int a, int b) {
   a=find(a);
   b=find(b);
   if(find(a)==find(b)) return true;
-  return true;
+  return false;
 }
 
 public static void union(int a, int b) {
