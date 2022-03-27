@@ -6,8 +6,14 @@
 [bj_G3_19237_어른상어](Search_Implementation/Main_bj_G3_19237_어른상어.java)|[bj_G3_20057_마법사상어와토네이도](Search_Implementation/Main_bj_G3_20057_마법사상어와토네이도.java)
 
 ## 순열조합부분집합
+&nbsp;|&nbsp;|&nbsp;|&nbsp;
+:--|:--|:--|:--
+
 
 ## 그리디
+&nbsp;|&nbsp;|&nbsp;|&nbsp;
+:--|:--|:--|:--
+
 
 ## 백트래킹
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
@@ -22,6 +28,8 @@ DFS|BFS
 
 
 ## Disjoint set (UnionFind)
+&nbsp;|&nbsp;|&nbsp;|&nbsp;
+:--|:--|:--|:--
 
 ## MST (최소신장트리)
 Kruskal|Prim
@@ -37,8 +45,14 @@ Kruskal|Prim
 
 
 ## KMP
+&nbsp;|&nbsp;|&nbsp;|&nbsp;
+:--|:--|:--|:--
+
 
 ## Trie
+&nbsp;|&nbsp;|&nbsp;|&nbsp;
+:--|:--|:--|:--
+
 
 ## DP (Dynamic Programing)
 
