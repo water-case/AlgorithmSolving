@@ -55,10 +55,16 @@ Kruskal|Prim
 
 
 ## DP (Dynamic Programing)
+&nbsp;|&nbsp;|&nbsp;|&nbsp;
+:--|:--|:--|:--
 
 ## 위상정렬
+&nbsp;|&nbsp;|&nbsp;|&nbsp;
+:--|:--|:--|:--
 
 ## LCA (최소공통조상)
+&nbsp;|&nbsp;|&nbsp;|&nbsp;
+:--|:--|:--|:--
 
 ## SCC (강한연결요소)
 
