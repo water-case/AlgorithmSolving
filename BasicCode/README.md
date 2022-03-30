@@ -257,18 +257,12 @@ public static int find(int a) {
   return parent[a]=find(parent[a]);
 }
 
-public static boolean isUnion(int a, int b) {
+public static boolean union(int a, int b) {
   a=find(a);
   b=find(b);
   if(find(a)==find(b)) return true;
-  return false;
-}
-
-public static void union(int a, int b) {
-  a=find(a);
-  b=find(b);
-  if(find(a)==find(b)) return;
   parent[b]=a;
+  return false;
 }
 ```
 [목차로 이동](#목차)
@@ -299,8 +293,7 @@ public static void main(String[] args) {
 
   int result=0, cnt=0;
   for(Edge e:edgeList)
-    if(isUnion(e.start, e.end)) {
-      union(e.start, e.end);
+    if(union(e.start, e.end)) {
       result+=e.price;
       if(++cnt==N-1) break;
     }
