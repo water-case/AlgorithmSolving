@@ -25,8 +25,8 @@
 DFS|BFS
 :--|:--
 [bj_G4_2573_빙산](DFS_BFS/Main_bj_G4_2573_빙산.java)|[bj_P5_20304_비밀번호제작](DFS_BFS/Main_bj_P5_20304_비밀번호제작.java)
-[Main_bj_G5_2636_치즈](DFS_BFS/Main_bj_G5_2636_치즈.java)|[Main_bj_G5_2636_치즈](DFS_BFS/Main_bj_G5_2636_치즈.java)
-&nbsp;|[Main_bj_G4_1600_말이되고픈원숭이](DFS_BFS/Main_bj_G4_1600_말이되고픈원숭이.java)
+[bj_G5_2636_치즈](DFS_BFS/Main_bj_G5_2636_치즈.java)|[bj_G5_2636_치즈](DFS_BFS/Main_bj_G5_2636_치즈.java)
+&nbsp;|[bj_G4_1600_말이되고픈원숭이](DFS_BFS/Main_bj_G4_1600_말이되고픈원숭이.java)
 
 
 ## Disjoint set (UnionFind)
@@ -59,7 +59,7 @@ Kruskal|Prim
 ## DP (Dynamic Programing)
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
 :--|:--|:--|:--
-[Main_bj_G5_2225_합분해](DP/Main_bj_G5_2225_합분해.java)|
+[bj_G5_2225_합분해](DP/Main_bj_G5_2225_합분해.java)|
 
 ## 위상정렬
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
