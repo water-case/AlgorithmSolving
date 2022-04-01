@@ -9,10 +9,16 @@
   - [dfs (깊이우선탐색)](#dfs-깊이우선탐색)
   - [bfs (너비우선탐색)](#bfs-너비우선탐색)
   - [Dijkstra](#dijkstra)
-  - [UnionFind](#unionfind)
-  - [Kruskal](#kruskal)
-  - [Prim](#prim)
+  - [MST](#mst)
+    - [UnionFind](#unionfind)
+    - [Kruskal](#kruskal)
+    - [Prim](#prim)
   - [KMP](#kmp)
+  - [DP](#)
+    - [피보나치](#피보나치)
+    - [동전선택](#동전선택)
+    - [이항계수](#이항계수)
+    - [0/1냅색](#01냅색)
   - [](#)
 
 ## 순열
@@ -242,7 +248,8 @@ public static void main(String[] args) throws Exception {
 ```
 [목차로 이동](#목차)
 
-## UnionFind
+## MST
+### UnionFind
 ``` java
 static int N;
 static int[] parent;
@@ -267,7 +274,7 @@ public static boolean union(int a, int b) {
 ```
 [목차로 이동](#목차)
 
-## Kruskal
+### Kruskal
 ``` java
 static class Edge implements Comparable<Edge> {
   int start, end, price;
@@ -302,7 +309,7 @@ public static void main(String[] args) {
 ```
 [목차로 이동](#목차)
 
-## Prim
+### Prim
 ```java
 public static void main(String[] args) {
   boolean[] v;
@@ -368,4 +375,49 @@ System.out.println(cnt);
 ```
 [목차로 이동](#목차)
 
-##
+## DP
+### 피보나치
+```java
+int[] memo;
+memo[0]=0;
+memo[1]=1;
+for(int i=2; i<=n; i++)
+  memo[i]=memo[i-1]+memo[i-2];
+System.out.println(memo[n]);
+```
+[목차로 이동](#목차)
+
+### 동전선택
+```java
+int money;
+int[] memo; // 최소동전개수
+memo[0]=0;
+for(int i=1; i<=money; i++) {
+  int min=Integer.MAX_VALUE;
+  if(i>=1 && memo[i-1]+1<min) min=memo[i-1]+1;
+  if(i>=5 && memo[i-5]+1<min) min=memo[i-5]+1;
+  if(i>=8 && memo[i-8]+1<min) min=memo[i-8]+1;
+  memo[i]=min;
+}
+```
+[목차로 이동](#목차)
+
+### 이항계수
+```java
+int n,k; // nCk
+int[][] memo;
+for(int i=0; i<=n; i++) {
+  for(int j=0; j<Math.min(i, k); j++) {
+    if(k==0 || j==i) memo[i][j]=1;
+    else memo[i][j]=memo[i-1][j-1]+memo[i-1][j];
+  }
+}
+```
+[목차로 이동](#목차)
+
+### 0/1냅색
+```java
+
+```
+[목차로 이동](#목차)
+
