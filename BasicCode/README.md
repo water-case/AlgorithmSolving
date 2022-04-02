@@ -19,6 +19,7 @@
     - [동전선택](#동전선택)
     - [이항계수](#이항계수)
     - [0/1냅색](#01냅색)
+  - [Trie](#trie)
   - [](#)
 
 ## 순열
@@ -421,3 +422,82 @@ for(int i=0; i<=n; i++) {
 ```
 [목차로 이동](#목차)
 
+## Trie
+```java
+static class TrieNode {
+  // 자식 노드 맵
+  private Map<Character, TrieNode> child=new HashMap<>();
+  // 마지막 글자인가?
+  private boolean last;
+
+  // 자식 getter
+  Map<Character, TrieNode> getChild() {
+    return this.child;
+  }
+  // 마지막글자여부 getter
+  boolean isLast() {
+    return this.last;
+  }
+  // 마지막글자여부 setter
+  void setIsLast(boolean isLast) {
+    this.last=isLast;
+  }
+}
+
+static class Trie {
+  // 루트노드
+  private TrieNode root;
+  // 생성자
+  Trie() {
+    root=new TrieNode();
+  }
+  // 단어 삽입
+  void insert(String word) {
+    TrieNode thisNode=this.root;
+    for(int i=0; i<word.length(); i++)
+      thisNode=thisNode.getChild().computelfAbsent(word.charAt(i). c->new TrieNode());
+    thisNode.setIsLast(true);
+  }
+  // 단어가 트라이에 있는가?
+  boolean contain(String word) {
+    TrieNode thisNode=this.root;
+    for(int i=0; i<word.length(); i++) {
+      char c=word.charAt(i);
+      TrieNode node=thisNode.getChild().get(c);
+      if(node==null) return false;
+      thisNode=node;
+    }
+    return thisNode.isLastChar();
+  }
+  // 단어 삭제
+  void delete(String word) {
+    delete(this.root, word, 0);
+  }
+  private void delete(TrieNode thisNode, String word, int idx) {
+    char c=word.charAt(idx);
+    
+    if(!thisNode.getChild().containsKey(c))
+      throw new Error("not exist");
+
+    TrieNode child=thisNode.getChild().get(c);
+    idx++;
+    if(idx==word.length()) {
+      if(!child.isLast())
+        throw new Error("not exist");
+
+      // 단어 삭제 처리위한 마지막글자여부 false
+      child.setIsLastChar(false);
+      // 마지막에 알파벳인데 자식노드가 없으면 노드삭제
+      if(child.getChild().isEmpty())
+        thisNode.getChild().remove(c);
+    } else {
+      delete(child, word, idx); // 정상적인 삭제를 위해 선 호출
+
+      // 정상적으로 호출이 진행되어 자식 노드가 없고, 해당노드로 이어지는 단어 없으면 노드삭제
+      if(!child.isLast() && child.getChild().isEmpty())
+        thisNode.getChild().remove(c);
+    }
+  }
+}
+```
+[목차로 이동](#목차)
