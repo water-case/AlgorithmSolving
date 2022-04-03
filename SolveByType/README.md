@@ -9,7 +9,6 @@
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
 :--|:--|:--|:--
 
-
 ## 그리디
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
 :--|:--|:--|:--
@@ -20,14 +19,12 @@
 :--|:--|:--|:--
 [bj_G2_17136_색종이붙이기](Backtracking/Main_bj_G2_17136_색종이붙이기.java)|[bj_G2_19236_청소년상어](Backtracking/Main_bj_G2_19236_청소년상어.java)|
 
-
 ## DFS와 BFS
 DFS|BFS
 :--|:--
 [bj_G4_2573_빙산](DFS_BFS/Main_bj_G4_2573_빙산.java)|[bj_P5_20304_비밀번호제작](DFS_BFS/Main_bj_P5_20304_비밀번호제작.java)
 [bj_G5_2636_치즈](DFS_BFS/Main_bj_G5_2636_치즈.java)|[bj_G5_2636_치즈](DFS_BFS/Main_bj_G5_2636_치즈.java)
 &nbsp;|[bj_G4_1600_말이되고픈원숭이](DFS_BFS/Main_bj_G4_1600_말이되고픈원숭이.java)
-
 
 ## Disjoint set (UnionFind)
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
@@ -45,25 +42,18 @@ Kruskal|Prim
 [bj_G2_2307_도로검문](Dijkstra/Main_bj_G2_2307_도로검문.java)|[bj_G4_10282_해킹](Dijkstra/Main_bj_G4_10282_해킹.java)| [bj_G5_17396_백도어](Dijkstra/Main_bj_G5_17396_백도어.java)| [bj_G3_1238_파티](Dijkstra/Main_bj_G3_1238_파티.java)
 [bj_G5_1916_최소비용구하기](Dijkstra/Main_bj_G5_1916_최소비용구하기.java)|
 
-
 ## KMP
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
 :--|:--|:--|:--
-
 
 ## Trie
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
 :--|:--|:--|:--
 
-
 ## DP (Dynamic Programing)
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
 :--|:--|:--|:--
 [bj_G5_2225_합분해](DP/Main_bj_G5_2225_합분해.java)|
-
-## 위상정렬
-&nbsp;|&nbsp;|&nbsp;|&nbsp;
-:--|:--|:--|:--
 
 ## LCA (최소공통조상)
 &nbsp;|&nbsp;|&nbsp;|&nbsp;

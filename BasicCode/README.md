@@ -20,6 +20,7 @@
     - [이항계수](#이항계수)
     - [0/1냅색](#01냅색)
   - [Trie](#trie)
+  - [LCA (최소공통조상)](#lca-최소공통조상)
   - [](#)
 
 ## 순열
@@ -499,5 +500,75 @@ static class Trie {
     }
   }
 }
+```
+[목차로 이동](#목차)
+
+## LCA (최소공통조상)
+```java
+static ArrayList<Integer>[] tree;
+static int[][] parent;
+static int[] depth;
+static int maxD;
+
+public static void mian(String[] args) throws Exception {
+  int N; // 노드의 개수
+
+  int tmp=1;
+  maxD=0;
+  while(tmp<=N) {
+    tmp<<=1;
+    maxD++;
+  }
+
+  parent=new int[N+1][maxD+1]; // 부모저장배열
+  depth=new int[N+1]; // 각 노드의 깊이를 저장할 배열
+  
+  // 루트노드는 1이라는 가정
+  treeBuilder(1,1); // 양방향 그래프를 트리구조로 만들며 부모배열 구함
+
+  for(int i=1; i<maxD; i++) // 희소행렬 만들기
+    for(int j=1; j<=N; j++)
+      parent[j][i]=parent[parent[j][i-1]][i-1]; // 멱수형태로 올라가며 구함
+
+  int M; // lca 구할 쌍의수
+  for(int i=0; i<M; i++) {
+    int a, b; // lca 구할 노드의 값
+    System.out.Println(LCA(a,b));
+  }
+}
+
+static int LCA(int a, int b) {
+  if(depth[a]<depth[b]) { // 다음 for문에서 높이가 큰 것에서 작은 것을 뺄것이므로
+    int tmp=a; // 더 큰 높이를 앞으로 오도록 교환
+    a=b; // 어차피 다음 for문 이후 같은 값이 될 것이므로 개의치 말것
+    b=tmp;
+  }
+
+  for(int i=maxD-1; i>=0 i--) // 2의 멱수 형태로 구해진 희소행렬을 이용하여
+    if(Math.pow(2, i)<=depth[a]-depth[b]) // 깊이를 맞추며 부모도 찾는다
+      a=parent[a][i];
+  
+  if(a==b) // 깊이를 맞추자마자 부모가 같으면 그대로 리턴
+    return a;
+
+  for(int i=maxD-1; i>=0; i--) // 깊이를 맞춰도 서로 부모가 다르면
+    if(parent[a][i]!=parent[b][i]) { // 희소행렬을 이용하여 올라가면서 부모를 맞춰본다
+      a=parent[a][i];
+      b=parent[b][i];
+    }
+
+  // 도출된 부모의 값은 인덱스가 0일때의 값을 기준으로 한다
+  return parent[a][0]; // 희소행렬을 처음 도출할 때 0번인덱스부터 멱수형태로 올라가며 구하기때문
+}
+
+static void treeBuilder(int now, int d) {
+  depth[now]=d; // 현재노드의 깊이 세팅
+  for(int next: tree[now]) // 현재 노드와 연결된 노드들 중에
+    if(depth[next]==0) { // 부모가 없는 것들만 현재 밑으로 넣는다
+      treeBuilder(next, d+1);
+      parent[next][0]=now; // 부모 넣기
+    }
+}
+
 ```
 [목차로 이동](#목차)
