@@ -49,6 +49,7 @@ Kruskal|Prim
 ## Trie
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
 :--|:--|:--|:--
+[bj_G5_5052_전화번호목록](Trie/Main_bj_G5_5052_전화번호목록.java)
 
 ## DP (Dynamic Programing)
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
