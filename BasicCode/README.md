@@ -19,6 +19,8 @@
     - [동전선택](#동전선택)
     - [이항계수](#이항계수)
     - [0/1냅색](#01냅색)
+    - [LIS (최장증가부분수열)](#lis최장증가부분수열)
+    - [FloydWarshall (플로이드와샬)](#floydwarshall-플로이드와샬)
   - [Trie](#trie)
   - [LCA (최소공통조상)](#lca-최소공통조상)
   - [](#)
@@ -419,7 +421,64 @@ for(int i=0; i<=n; i++) {
 
 ### 0/1냅색
 ```java
+int N; // 물품의 수
+int K; // 버틸 수 있는 무게
+int[] wa; // 물품의 무게 배열
+int[] pa; // 물품의 가치 배열
+int[][] memo;
 
+int itemW=0, itemP=0;
+for(int item=1; item<=N; item++) {
+  itemW=wa[item];
+  itemP=pa[item];
+
+  for(int weight=1; weight<=K weight++) {
+    if(itemW<=weight)
+      memo[item][weight]=Math.max(memo[item-1][weight], itemP+memo[item-1][weight-itemW]);
+    else
+      memo[item][weight]=memo[item-1][weight];
+  }
+}
+```
+[목차로 이동](#목차)
+
+### LIS(최장증가부분수열)
+```java
+int N; // 수열의 총 길이
+int[] nums; // 수 배열
+int[] lis; // 최장증가부분수열 메모이제이션
+
+for(int i=0; i<N; i++) {
+  lis[i]=1;
+  for(int j=0; j<i; j++)
+    if(nums[j]<nums[i] && lis[i]<lis[j]+1)
+      lis[i]=lis[j]+1;
+}
+```
+[목차로 이동](#목차)
+
+### FloydWarshall (플로이드와샬)
+```java
+int N; // 정점의 수
+int[][] g; // 정점간 그래프 (음, 양)
+
+for(int i=0; i<N; i++) { // 그래프 입력시 연결안된곳은 999_999같은 값으로 세팅
+  for(int j=0; j<N; j++) {
+    g[i][j]=Integer.parseInt(st.nextToken());
+    if(i!=j && g[i][j]==0) g[i][j]=999_999;
+  }
+
+for(int k=0; j<N; k++) { // 가운데값
+  for(int i=0; i<N; i++) { // 시작값
+    if(k==i) continue;
+    for(int j=0; j<N; j++) { // 도착값
+      if(i==j || k==j) continue;
+      if(g[i][j] > g[i][k]+h[k][j]) // i - k - j 순서를 기억하면 쉽다
+        g[i][j]=g[i][k]+g[k][j];
+    }
+  }
+}
+}
 ```
 [목차로 이동](#목차)
 
