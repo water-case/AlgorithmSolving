@@ -3,7 +3,7 @@
 ## 탐색 및 구현
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
 :--|:--|:--|:--
-[bj_G3_19237_어른상어](Search_Implementation/Main_bj_G3_19237_어른상어.java)|[bj_G3_20057_마법사상어와토네이도](Search_Implementation/Main_bj_G3_20057_마법사상어와토네이도.java)
+[bj_G3_19237_어른상어](Search_Implementation/Main_bj_G3_19237_어른상어.java)|[bj_G3_20057_마법사상어와토네이도](Search_Implementation/Main_bj_G3_20057_마법사상어와토네이도.java)|[bj_G4_17135_캐슬디펜스](Search_Implementation/Main_bj_G4_17135_캐슬디펜스.java)|
 
 ## 순열조합부분집합
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
@@ -26,6 +26,9 @@ DFS|BFS
 [bj_G5_2636_치즈](DFS_BFS/Main_bj_G5_2636_치즈.java)|[bj_G5_2636_치즈](DFS_BFS/Main_bj_G5_2636_치즈.java)
 &nbsp;|[bj_G4_1600_말이되고픈원숭이](DFS_BFS/Main_bj_G4_1600_말이되고픈원숭이.java)
 &nbsp;|[bj_G1_1194_달이차오른다가자](DFS_BFS/Main_bj_G1_1194_달이차오른다가자.java)
+&nbsp;|[bj_G4_3055_탈출](DFS_BFS/Main_bj_G4_3055_탈출.java)
+&nbsp;|[bj_G4_17471_게리맨더링](DFS_BFS/Main_bj_G4_17471_게리맨더링.java)
+
 
 ## Disjoint set (UnionFind)
 &nbsp;|&nbsp;|&nbsp;|&nbsp;

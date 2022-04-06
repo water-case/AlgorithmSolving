@@ -14,7 +14,7 @@
     - [Kruskal](#kruskal)
     - [Prim](#prim)
   - [KMP](#kmp)
-  - [DP](#)
+  - [DP](#dp)
     - [피보나치](#피보나치)
     - [동전선택](#동전선택)
     - [이항계수](#이항계수)
@@ -23,6 +23,9 @@
     - [FloydWarshall (플로이드와샬)](#floydwarshall-플로이드와샬)
   - [Trie](#trie)
   - [LCA (최소공통조상)](#lca-최소공통조상)
+  - [SCC (강한연결요소)](#scc-강한연결요소)
+    - [코라사주](#코라사주)
+    - [타잔](#타잔)
   - [](#)
 
 ## 순열
@@ -628,5 +631,129 @@ static void treeBuilder(int now, int d) {
     }
 }
 
+```
+[목차로 이동](#목차)
+
+## SCC (강한연결요소)
+### 코라사주
+> 타잔에 비해 구현이 쉬움
+```java
+static ArrayList<ArrayList<Integer>> g=new ArrayList<>(); // 정방향그래프
+static ArrayList<ArrayList<Integer>> rg=new ArrayList<>(); // 역방향그래프
+static ArrayList<ArrayList<Integer>> sccList=new ArrayList<>(); // scc리스트
+static Stack<Integer> stack=new Stack<>();
+static boolean[] v;
+static int sccCnt;
+
+public static void main(String[] args) {
+  int V; // 정점 개수
+  int E; // 간선 개수
+  for(int i=0; i<=V; i++) {
+    g.add(new ArrayList<>());
+    rg.add(new ArrayList<>());
+  }
+
+  for(int i=0; i<E; i++) {
+    st=new StringTokenizer(br.readLine()," ");
+    int a=Integer.parseInt(st.nextToken());
+    int b=Integer.parseInt(st.nextToken());
+    g.get(a).add(b); // 정방향과 역방향그래프
+    rg.get(b).add(a);
+  }
+
+  // scc 첫번째 단계 : 특정노드에서 dfs를 돌며 스택에 넣는다, 낮은번호부터
+  v=new boolean[V+1];
+  for(int i=1; i<=V; i++)
+    if(!v[i]) SCC1(i);
+
+  // scc 두번째 단계 : 스택에서 하나씩 빼면서 dfs를 돌며 방문되는건 scc리스트에 넣는다
+  v=new boolean[V+1];
+  while(!stack.isEmpty()) {
+    int now=stack.pop();
+    if(!v[now]) {
+      SCC2(now);
+      sccCount++;
+    }
+  }
+  // scc 리스트 완성 목적에 맞게 출력
+}
+
+static void SCC2(int n) {
+  visit[n] = true;
+  sccList.get(sccCount).add(n);
+  for (int next : rg.get(n))
+    if (!visit[next])
+      SCC2(next);
+}
+
+static void SCC1(int n) {
+  visit[n] = true;
+  for (int next : g.get(n))
+    if (!visit[next])
+      SCC1(next);
+  stack.push(n);
+}
+
+
+```
+[목차로 이동](#목차)
+
+### 타잔
+> 코사라주에 비해 구현이 어렵지만 활용도가 높음
+```java
+static int size, num;
+static int[] order;
+static boolean[] v;
+static Stack<Integer> stack=new Stack<>();
+static ArrayList<ArrayList<Integer>> g=new ArrayList<>();
+static ArrayList<ArrayList<Integer>> sccList=new ArrayList<>();
+
+public static void main(String[] args) {
+  int V; // 정점 개수
+  int E; // 간선 개수
+  for(int i=0; i<=V; i++)
+    g.add(new ArrayList<>());
+
+  for(int i=0; i<E; i++) {
+    st=new StringTokenizer(br.readLine()," ");
+    int a=Integer.parseInt(st.nextToken());
+    int b=Integer.parseInt(st.nextToken());
+    g.get(a).add(b);
+  }
+
+  order=new int[V+1];
+  v=new boolean[V+1];
+  num=0;
+
+  for(int i=1; i<=V; i++)
+    if(order[i]==0)
+      SCC(i);
+  // scc 리스트 완성 목적에 맞게 출력
+}
+
+static void SCC(int idx) {
+  order[idx]=(++num);
+  stack.add(idx);
+  int root=order[idx];
+
+  for(int tmp : g.get(idx)) {
+    if(order[tmp]==0)
+      root=Math.min(root, SCC(tmp));
+    else if(!v[tmp])
+      root=Math.min(root, order[tmp]);
+  }
+
+  if(root==order[idx]) {
+    ArrayList<Integer> tmpscc=new ArrayList<>();
+    while(true) {
+      int top=stack.pop();
+      tmpscc.add(top);
+      v[top]=true;
+      if(top==idx) break;
+    }
+    Collections.sort(tmpscc);
+    sccList.add(tmpscc);
+  }
+}
 ```
 [목차로 이동](#목차)
