@@ -26,7 +26,11 @@
   - [SCC (강한연결요소)](#scc-강한연결요소)
     - [코라사주](#코라사주)
     - [타잔](#타잔)
+  - [세그먼트트리](#)
   - [](#)
+  - []세그먼트트리(#)
+
+
 
 ## 순열
 ```java
@@ -754,6 +758,47 @@ static void SCC(int idx) {
     Collections.sort(tmpscc);
     sccList.add(tmpscc);
   }
+}
+```
+[목차로 이동](#목차)
+
+## 세그먼트트리
+```java
+// 구체적인 사용예시를 위해 백준_11659_구간합구하기 문제를 약식 기술함
+static int[] arr, tree;
+
+public static void main(String[] args) {
+  int N; // 수의 개수
+  int M; // 합을 구해야 하는 횟수
+
+  arr=new int[N];
+  tree=new int[N*4]; 
+  /* 
+   * N*4 이외에 구체적인 세그먼트트리의 크기를 구하는 방법
+   * h(트리의높이)=(int) Math.ceil(Math.log(N)/Math.log(2));
+   * size(세그먼트트리의 크기)=(int) Math.pow(2, h+1);
+   * tree=new int[size];
+   */
+
+  init(0, N-1, 1); // 세그먼트 트리 생성
+  for(int i=0; i<M; i++) {
+    int start; // 구간시작
+    int end; // 구간끝
+    treeSum(0,N-1, 1, start-1, end-1); // 구간합리턴
+  }
+}
+
+static int init(int start, int end, int node) {
+  if(start==end) return tree[node]=tree[start];
+  int mid=(start+end)/2;
+  return tree[node]+=init(start, mid, node*2)+init(mid+1, end, node*2+1);
+}
+
+static int treeSum(int start, int end, int node, int left, int right) {
+  if(left>end || right<start) return 0;
+  if(left<=start && right>=end) return tree[node];
+  int mid=(start+end)/2;
+  return treeSum(start, mid, node*2, left, right)+treeSum(mid+1, end, node*2+1, left, right);
 }
 ```
 [목차로 이동](#목차)
