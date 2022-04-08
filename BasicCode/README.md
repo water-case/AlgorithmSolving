@@ -802,3 +802,45 @@ static int treeSum(int start, int end, int node, int left, int right) {
 }
 ```
 [목차로 이동](#목차)
+
+## 이분매칭
+```java
+// 구체적인 사용예시를 위해 백준_11375_열혈강호 문제를 약식 기술함
+static ArrayList<ArrayList<Integer>> g=new ArrayList<>();
+static boolean[] v;
+static int[] work;
+
+public static void main(String[] args) {
+  int N; // 직원의 수
+  int M; // 일의 개수
+
+  for(int i=0; i<N; i++) {
+    ArrayList<Integer> g2=new ArrayList<>();
+    st=new StringTokenizer(br.readLine()," ");
+    int n=Integer.parseInt(st.nextToken());
+    for(int j=0; j<n; j++)
+      g2.add(Integer.parseInt(st.nextToken()));
+    g.add(g);
+  }
+
+  int cnt=0; // 최대 일의 개수
+  work=new int[M+1];
+  for(int i=1; i<=N; i++) {
+    v=new boolean[M+1];
+    if(dfs(i)) cnt++;
+  }
+}
+
+static boolean dfs(int x) {
+  for(int next:g.get(x)){
+    if(v[next]) continue;
+    v[next]=true;
+    if(work[next]==0||dfs(work[next])) {
+      work[next]=x;
+      return true;
+    }
+  }
+  return false;
+}
+```
+[목차로 이동](#목차)
