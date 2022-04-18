@@ -3,11 +3,13 @@
 ## 탐색 및 구현
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
 :--|:--|:--|:--
-[bj_G3_19237_어른상어](Search_Implementation/Main_bj_G3_19237_어른상어.java)|[bj_G3_20057_마법사상어와토네이도](Search_Implementation/Main_bj_G3_20057_마법사상어와토네이도.java)|[bj_G4_17135_캐슬디펜스](Search_Implementation/Main_bj_G4_17135_캐슬디펜스.java)|
+[bj_G3_19237_어른상어](Search_Implementation/Main_bj_G3_19237_어른상어.java)|[bj_G3_20057_마법사상어와토네이도](Search_Implementation/Main_bj_G3_20057_마법사상어와토네이도.java)|[bj_G4_17135_캐슬디펜스](Search_Implementation/Main_bj_G4_17135_캐슬디펜스.java)|[bj_G4_14499_주사위굴리기](Search_Implementation/Main_bj_G4_14499_주사위굴리기.java)|[bj_G2_17825_주사위윷놀이](Search_Implementation/Main_bj_G2_17825_주사위윷놀이.java)
+[bj_G4_17779_게리맨더링2](Search_Implementation/Main_bj_G4_17779_게리맨더링2.java)|
 
 ## 순열조합부분집합
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
 :--|:--|:--|:--
+[bj_G4_17406_배열돌리기4](PermCombSubset/Main_bj_G4_17406_배열돌리기4.java)|[bj_G4_17281_야구](PermCombSubset/Main_bj_G4_17281_야구.java)
 
 ## 그리디
 &nbsp;|&nbsp;|&nbsp;|&nbsp;
