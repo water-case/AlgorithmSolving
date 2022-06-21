@@ -5,3 +5,5 @@
 ### ⏫ 백준 단계별로 풀기 [[폴더 링크](https://github.com/water-case/AlgorithmSolving/tree/main/workspace/Java/BakjoonStepbystep/src)]
 
 ### 🔁 백준 종류별로 풀기 [[폴더링크](SolveByType/README.md)]
+
+### 🔀 백준 풀이 모음 [[폴더링크](https://github.com/water-case/BaekjoonHubRepository/tree/main/%EB%B0%B1%EC%A4%80)]
