@@ -474,11 +474,11 @@ for(int i=0; i<N; i++) { // 그래프 입력시 연결안된곳은 999_999같은
     if(i!=j && g[i][j]==0) g[i][j]=999_999;
   }
 
-for(int k=0; j<N; k++) { // 가운데값
+for(int k=0; k<N; k++) { // 가운데값
   for(int i=0; i<N; i++) { // 시작값
     if(k==i) continue;
     for(int j=0; j<N; j++) { // 도착값
-      if(i==j || k==j) continue;
+      if(i==k || k==j) continue;
       if(g[i][j] > g[i][k]+h[k][j]) // i - k - j 순서를 기억하면 쉽다
         g[i][j]=g[i][k]+g[k][j];
     }
